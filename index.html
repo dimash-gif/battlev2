@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Shield: Bit Guard vs Malware Virus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-neon-city">
+    <div class="cyber-grid"></div>
+    <div class="cyber-scanlines"></div>
+
+    <div class="page-wrapper">
+        <div class="arcade-cabinet">
+            <!-- Cabinet top marquee -->
+            <div class="cabinet-marquee">
+                <div class="marquee-inner">
+                    <span class="glow-text-magenta">CYBER</span>
+                    <span class="glow-text-cyan">DEFENDER</span>
+                </div>
+                <span class="marquee-subtitle">ARCADE SYSTEM v2.0</span>
+            </div>
+
+            <!-- CRT Monitor -->
+            <div class="crt-monitor">
+                <div class="crt-bezel">
+                    <div class="crt-screen">
+                        <div class="screen-scanlines"></div>
+                        <div class="screen-flicker"></div>
+                        <div class="screen-glare"></div>
+
+                        <!-- HUD Bar -->
+                        <div class="hud-bar">
+                            <div class="player-hud">
+                                <div class="hud-label">PLAYER: BIT_GUARD</div>
+                                <div class="player-hearts" id="playerHearts">
+                                    <span class="heart active">❤️</span>
+                                    <span class="heart active">❤️</span>
+                                    <span class="heart active">❤️</span>
+                                </div>
+                            </div>
+
+                            <div class="system-status">
+                                <div class="status-indicator warning pulse" id="threatIndicator">THREAT LEVEL: HIGH</div>
+                                <div class="status-code">SYS_SEC // PORT_443</div>
+                            </div>
+
+                            <div class="enemy-hud">
+                                <div class="hud-label enemy-label">ENEMY: MALWARE_VIRU$</div>
+                                <div class="enemy-hp-container">
+                                    <div class="enemy-hp-bar" id="enemyHpBar">
+                                        <div class="hp-segment active"></div>
+                                        <div class="hp-segment active"></div>
+                                        <div class="hp-segment active"></div>
+                                        <div class="hp-segment active"></div>
+                                        <div class="hp-segment active"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Game Canvas -->
+                        <div class="canvas-container">
+                            <canvas id="gameCanvas" width="800" height="320"></canvas>
+                            <div id="intrusionAlert" class="canvas-overlay hidden">
+                                <div class="alert-box">
+                                    <div class="alert-title blink">⚠️ ALERTS: VIRUS INTRUSION ⚠️</div>
+                                    <div class="alert-message">ENGAGE FIREWALL PROTOCOLS IMMEDIATELY</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terminal Divider -->
+                        <div class="terminal-divider">
+                            <div class="divider-line"></div>
+                            <div class="divider-dots"></div>
+                        </div>
+
+                        <!-- Terminal Area -->
+                        <div class="terminal-area">
+                            <!-- Intro -->
+                            <div id="introScreen" class="terminal-content">
+                                <h2 class="terminal-title glow-text-cyan">SYSTEM INTRUSION DETECTED!</h2>
+                                <p class="terminal-text" id="introText">
+                                    A highly dangerous trojan virus has bypassed the main firewall and is corrupting core system data.
+                                    As the Bit Guard, you must engage the malware in cyberspace. Answer cyber security questions correctly
+                                    to fire protective patches. Defeat the virus to secure the system — the battle continues until you win!
+                                </p>
+                                <div class="btn-group">
+                                    <button id="startBtn" class="arcade-btn green-btn">BOOT GAME PROTOCOL</button>
+                                </div>
+                            </div>
+
+                            <!-- Quiz -->
+                            <div id="quizScreen" class="terminal-content hidden">
+                                <div class="question-header">
+                                    <span class="question-number" id="questionNum">QUESTION 1/5</span>
+                                    <span class="security-level" id="secTopic">TOPIC: PHISHING</span>
+                                </div>
+                                <div class="question-body">
+                                    <p id="questionText">Loading security question...</p>
+                                </div>
+                                <div class="options-grid" id="optionsContainer"></div>
+                            </div>
+
+                            <!-- Feedback -->
+                            <div id="feedbackScreen" class="terminal-content hidden">
+                                <h2 id="feedbackTitle" class="feedback-title glow-text-green">CORRECT PROTOCOL!</h2>
+                                <p id="feedbackText" class="feedback-text">Applying cyber security counter-measures...</p>
+                                <div class="btn-group">
+                                    <button id="nextBtn" class="arcade-btn blue-btn">CONTINUE BATTLE</button>
+                                </div>
+                            </div>
+
+                            <!-- Checkpoint (shield depleted — no game over, just restore) -->
+                            <div id="checkpointScreen" class="terminal-content hidden">
+                                <h2 class="terminal-title glow-text-red blink">SYSTEM BREACH DETECTED!</h2>
+                                <p class="terminal-text text-red" id="checkpointText">
+                                    Warning: Firewall shield integrity has been completely compromised.
+                                    Initiate emergency backup data restoration to continue the operation.
+                                    The current damage loaded onto Malware Virus will remain. Keep fighting — you must defeat the virus!
+                                </p>
+                                <div class="btn-group">
+                                    <button id="checkpointBtn" class="arcade-btn red-btn">RESTORE SHIELD & CONTINUE</button>
+                                </div>
+                            </div>
+
+                            <!-- Victory -->
+                            <div id="victoryScreen" class="terminal-content hidden">
+                                <h2 class="terminal-title glow-text-green">🏆 SYSTEM SECURED! 🏆</h2>
+                                <p class="terminal-text text-green" id="victoryText">
+                                    EXCELLENT WORK! The Malware Virus has been completely disintegrated.
+                                    All firewalls are fully operational, and system core memory is intact.
+                                    You have successfully defended the network!
+                                </p>
+                                <div class="btn-group">
+                                    <button id="restartBtn" class="arcade-btn green-btn">REPLAY TRAINING PROTOCOL</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Deck -->
+            <div class="arcade-controls">
+                <div class="control-group">
+                    <span class="control-label">SOUND</span>
+                    <button id="audioToggleBtn" class="control-btn toggle-active">ON</button>
+                </div>
+                <div class="control-group">
+                    <span class="control-label">THEME</span>
+                    <button id="themeToggleBtn" class="control-btn toggle-active">NEON CITY</button>
+                </div>
+                <div class="control-group">
+                    <span class="control-label">LANGUAGE</span>
+                    <button id="langToggleBtn" class="control-btn">RU</button>
+                </div>
+                <div class="control-group">
+                    <span class="control-label">CABINET</span>
+                    <div class="arcade-joystick">
+                        <div class="joystick-stick"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span class="glow-text-cyan">CYBER DEFENDER</span> &copy; 2026 &mdash; ARCADE EDITION
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
