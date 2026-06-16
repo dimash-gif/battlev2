@@ -1,4 +1,4 @@
-// Cyber Security Arcade Quiz Game - Enhanced Engine v2.0
+// Cyber Security Arcade Quiz Game - Enhanced Engine v2.0 (with KZ Support)
 
 // 1. LANGUAGE DICTIONARY
 const TRANSLATIONS = {
@@ -49,6 +49,30 @@ const TRANSLATIONS = {
         incorrectText: "Угроза безопасности! Вирус пробил вашу защиту...",
         questionLabel: "ВОПРОС",
         topicLabel: "ТЕМА"
+    },
+    KZ: {
+        introTitle: "ЖҮЙЕГЕ БҰЗЫП КІРУ АНЫҚТАЛДЫ!",
+        introText: "Өте қауіпті троян вирусы негізгі желіаралық қалқанды (firewall) бұзып өтіп, жүйенің негізгі деректерін зақымдауда. Bit Guard ретінде сіз киберкеңістікте зиянды бағдарламамен күресуіңіз керек. Қорғаныс патчтарын іске қосу үшін киберқауіпсіздік сұрақтарына дұрыс жауап беріңіз. Күрес ВИРУСТЫ ЖЕҢГЕНГЕ дейін жалғасады — сіз ұтыла алмайсыз, тек күресті жалғастырыңыз!",
+        bootBtn: "ОЙЫН ХАТТАМАСЫН ІСКЕ ҚОСУ",
+        threatLevel: "ҚАУІП ДЕҢГЕЙІ: ЖОҒАРЫ",
+        sysSec: "ЖҮЙЕ_ҚОРҒ // 443_ПОРТ",
+        playerLabel: "ОЙЫНШЫ: BIT_GUARD",
+        enemyLabel: "ЖАУ: MALWARE_VIRU$",
+        continueBtn: "КҮРЕСТІ ЖАЛҒАСТЫРУ",
+        restartBtn: "ЖАТТЫҒУДЫ ҚАЙТА БАСТАУ",
+        checkpointTitle: "ҚАЛҚАН ТАУЫСЫЛДЫ!",
+        checkpointText: "Желіаралық қалқаныңыз бұзылды — бірақ миссия жалғасуда! Қосалқы жүйелер іске қосылды. Қалқаныңыз қалпына келтірілді. Вирусқа келтірілген нұқсан сақталады. Вирусты міндетті түрде жеңуіңіз керек!",
+        checkpointBtn: "ҚАЛҚАНДЫ ҚАЛПЫНА КЕЛТІРІП ЖАЛҒАСТЫРУ",
+        victoryTitle: "🏆 ЖҮЙЕ ҚОРҒАЛДЫ! 🏆",
+        victoryText: "КЕРЕМЕТ! Зиянды вирус толығымен жойылды. Барлық желіаралық қалқандар қалыпты жұмыс істеуде және жүйенің негізгі жады аман қалды. Сіз желіні сәтті қорғап қалдыңыз!",
+        intrusionTitle: "⚠️ ЕСКЕРТУ: ВИРУС ШАБУЫЛЫ ⚠️",
+        intrusionMsg: "ЖЕЛІАРАЛЫҚ ҚАЛҚАН ХАТТАМАЛАРЫН ТЕЗ АРАДА ІСКЕ ҚОСЫҢЫЗ",
+        correctTitle: "ХАТТАМА ДҰРЫС!",
+        correctText: "Киберқауіпсіздік шаралары қолданылуда...",
+        incorrectTitle: "ХАТТАМА ҚАТЕ!",
+        incorrectText: "Қауіпсіздік бұзылды! Зиянды вирус қалқанды бұзып өтті...",
+        questionLabel: "СҰРАҚ",
+        topicLabel: "ТАҚЫРЫП"
     }
 };
 
@@ -56,10 +80,11 @@ const TRANSLATIONS = {
 const QUESTIONS_POOL = [
     {
         id: 1,
-        topic: { EN: "PHISHING", RU: "ФИШИНГ" },
+        topic: { EN: "PHISHING", RU: "ФИШИНГ", KZ: "ФИШИНГ" },
         text: {
             EN: "You received an email: 'Urgent! Confirm your password via link, or your account will be blocked!'. What should you do?",
-            RU: "Вам пришло письмо: «Срочно подтвердите пароль по ссылке, иначе ваш аккаунт заблокируют!». Что делать?"
+            RU: "Вам пришло письмо: «Срочно подтвердите пароль по ссылке, иначе ваш аккаунт заблокируют!». Что делать?",
+            KZ: "Сізге хат келді: 'Шұғыл! Сілтеме арқылы құпия сөзіңізді растаңыз, әйтпесе аккаунтыңыз бұғатталады!'. Не істеу керек?"
         },
         options: {
             EN: [
@@ -71,15 +96,21 @@ const QUESTIONS_POOL = [
                 { text: "Проверить адрес отправителя и домен ссылки (не переходить).", correct: true },
                 { text: "Сразу перейти по ссылке и ввести пароль, чтобы избежать блокировки.", correct: false },
                 { text: "Переслать письмо всем коллегам, чтобы спросить их совета.", correct: false }
+            ],
+            KZ: [
+                { text: "Жіберушінің мекенжайын және сілтеме доменін тексеру (сілтемеге өтпеу).", correct: true },
+                { text: "Бұғаттауды болдырмау үшін бірден сілтемеге өтіп, құпия сөзді енгізу.", correct: false },
+                { text: "Кеңес сұрау үшін хатты барлық әріптестеріңізге қайта жіберу.", correct: false }
             ]
         }
     },
     {
         id: 2,
-        topic: { EN: "PASSWORDS", RU: "ПАРОЛИ" },
+        topic: { EN: "PASSWORDS", RU: "ПАРОЛИ", KZ: "ҚҰПИЯ СӨЗДЕР" },
         text: {
             EN: "Which password is the most secure for a work account?",
-            RU: "Какой пароль является наиболее надежным для рабочей учетной записи?"
+            RU: "Какой пароль является наиболее надежным для рабочей учетной записи?",
+            KZ: "Жұмыс аккаунты үшін қай құпия сөз ең сенімді болып табылады?"
         },
         options: {
             EN: [
@@ -91,15 +122,21 @@ const QUESTIONS_POOL = [
                 { text: "P@ssw0rd2026! - сложный пароль, который легко запомнить.", correct: false },
                 { text: "Tr0ub1e4.Ch0c01ate.S1ide - длинная фраза из случайных слов.", correct: true },
                 { text: "Имя домашнего питомца с годом рождения (например, Barsik2015).", correct: false }
+            ],
+            KZ: [
+                { text: "P@ssw0rd2026! - есте сақтауға оңай күрделі құпия сөз.", correct: false },
+                { text: "Tr0ub1e4.Ch0c01ate.S1ide - кездейсоқ сөздерден тұратын ұзын құпия сөз тіркесі.", correct: true },
+                { text: "Үй жануарының аты мен туған жылының қосындысы (мысалы, Barsik2015).", correct: false }
             ]
         }
     },
     {
         id: 3,
-        topic: { EN: "2FA", RU: "ДВУХФАКТОРНАЯ АУТЕНТИФИКАЦИЯ" },
+        topic: { EN: "2FA", RU: "ДВУХФАКТОРНАЯ АУТЕНТИФИКАЦИЯ", KZ: "ЕКІ ФАКТОРЛЫ АУТЕНТИФИКАЦИЯ" },
         text: {
             EN: "You received a 2FA SMS code, but you didn't try to log in. What should you do?",
-            RU: "Вам пришел SMS-код подтверждения входа, но вы не пытались войти. Ваши действия?"
+            RU: "Вам пришел SMS-код подтверждения входа, но вы не пытались войти. Ваши действия?",
+            KZ: "Сізге 2FA SMS коды келді, бірақ сіз кіруге әрекет жасаған жоқсыз. Не істеу керек?"
         },
         options: {
             EN: [
@@ -111,15 +148,21 @@ const QUESTIONS_POOL = [
                 { text: "Проигнорировать, так как без моего телефона никто не войдет.", correct: false },
                 { text: "Срочно сменить пароль от аккаунта и сообщить в службу безопасности.", correct: true },
                 { text: "Отправить код в ответном SMS, если придет запрос на отмену.", correct: false }
+            ],
+            KZ: [
+                { text: "Елемеу, өйткені менің телефонымсыз ешкім кіре алмайды.", correct: false },
+                { text: "Шұғыл түрде аккаунттың құпия сөзін өзгертіп, қауіпсіздік қызметіне хабарлау.", correct: true },
+                { text: "Егер растау сұрауы келсе, кодты жауап SMS-те жіберу.", correct: false }
             ]
         }
     },
     {
         id: 4,
-        topic: { EN: "PUBLIC WI-FI", RU: "ОБЩЕСТВЕННЫЙ WI-FI" },
+        topic: { EN: "PUBLIC WI-FI", RU: "ОБЩЕСТВЕННЫЙ WI-FI", KZ: "ҚОҒАМДЫҚ WI-FI" },
         text: {
             EN: "You need to work with confidential data at a cafe using public Wi-Fi. How should you proceed?",
-            RU: "Вам нужно поработать с конфиденциальными данными в кафе через публичный Wi-Fi. Как поступить?"
+            RU: "Вам нужно поработать с конфиденциальными данными в кафе через публичный Wi-Fi. Как поступить?",
+            KZ: "Дәмханада қоғамдық Wi-Fi арқылы құпия деректермен жұмыс істеу керек. Қалай әрекет ету керек?"
         },
         options: {
             EN: [
@@ -131,15 +174,21 @@ const QUESTIONS_POOL = [
                 { text: "Подключить VPN перед началом работы с корпоративными системами.", correct: true },
                 { text: "Работать как обычно, современные браузеры и так всё шифруют.", correct: false },
                 { text: "Отключить брандмауэр, чтобы соединение работало быстрее.", correct: false }
+            ],
+            KZ: [
+                { text: "Корпоративтік жүйелерге кірмес бұрын VPN қосу.", correct: true },
+                { text: "Әдеттегідей жұмыс істеу, заманауи браузерлер бәрін шифрлайды.", correct: false },
+                { text: "Жылдамдықты арттыру үшін желіаралық қалқанды өшіру.", correct: false }
             ]
         }
     },
     {
         id: 5,
-        topic: { EN: "PHYSICAL SECURITY", RU: "ФИЗИЧЕСКАЯ БЕЗОПАСНОСТЬ" },
+        topic: { EN: "PHYSICAL SECURITY", RU: "ФИЗИЧЕСКАЯ БЕЗОПАСНОСТЬ", KZ: "ФИЗИКАЛЫҚ ҚАУІПСІЗДІК" },
         text: {
             EN: "You found a USB flash drive in the office parking lot labeled 'Salaries 2026'. What do you do?",
-            RU: "Вы нашли USB-флешку на парковке офиса с надписью «Зарплаты 2026». Что вы сделаете?"
+            RU: "Вы нашли USB-флешку на парковке офиса с надписью «Зарплаты 2026». Что вы сделаете?",
+            KZ: "Кеңсе тұрағында 'Жалақы 2026' деген жазуы бар USB-флешка таптыңыз. Не істейсіз?"
         },
         options: {
             EN: [
@@ -151,15 +200,21 @@ const QUESTIONS_POOL = [
                 { text: "Вставлю в свой рабочий компьютер, чтобы посмотреть файлы.", correct: false },
                 { text: "Передам флешку в отдел ИТ-безопасности, не подключая ее.", correct: true },
                 { text: "Вставлю в домашний компьютер, там нет важных рабочих данных.", correct: false }
+            ],
+            KZ: [
+                { text: "Қандай файлдар бар екенін көру үшін жұмыс компьютеріне қосу.", correct: false },
+                { text: "Флешканы қоспай, АТ қауіпсіздігі бөліміне тапсыру.", correct: true },
+                { text: "Үй компьютеріне қосу, себебі онда маңызды жұмыс деректері жоқ.", correct: false }
             ]
         }
     },
     {
         id: 6,
-        topic: { EN: "UPDATES", RU: "ОБНОВЛЕНИЯ ПО" },
+        topic: { EN: "UPDATES", RU: "ОБНОВЛЕНИЯ ПО", KZ: "БЖ ЖАҢАРТУЛАРЫ" },
         text: {
             EN: "Your OS prompts you to install a security update, but you are busy. What should you do?",
-            RU: "Операционная система предлагает установить обновление безопасности, но вы заняты. Что делать?"
+            RU: "Операционная система предлагает установить обновление безопасности, но вы заняты. Что делать?",
+            KZ: "Операциялық жүйе қауіпсіздік жаңартуын орнатуды сұрайды, бірақ сіз бос емессіз. Не істеу керек?"
         },
         options: {
             EN: [
@@ -171,15 +226,21 @@ const QUESTIONS_POOL = [
                 { text: "Отложить обновление на неопределенный срок, пока всё работает.", correct: false },
                 { text: "Запланировать установку обновлений на ближайшее нерабочее время.", correct: true },
                 { text: "Отключить автоматические обновления совсем, чтобы они не мешали.", correct: false }
+            ],
+            KZ: [
+                { text: "Бәрі тұрақты жұмыс істеп тұрған кезде жаңартуды белгісіз мерзімге қалдыру.", correct: false },
+                { text: "Жаңартуларды жақын арадағы жұмыстан тыс уақытқа жоспарлау.", correct: true },
+                { text: "Жұмысқа кедергі келтірмеуі үшін автоматты жаңартуларды мүлдем өшіріп тастау.", correct: false }
             ]
         }
     },
     {
         id: 7,
-        topic: { EN: "SOCIAL ENGINEERING", RU: "СОЦИАЛЬНАЯ ИНЖЕНЕРИЯ" },
+        topic: { EN: "SOCIAL ENGINEERING", RU: "СОЦИАЛЬНАЯ ИНЖЕНЕРИЯ", KZ: "ӘЛЕУМЕТТІК ИНЖЕНЕРИЯ" },
         text: {
             EN: "The 'CEO' messages you on Telegram from a personal account asking to urgently transfer funds. What to do?",
-            RU: "В Telegram пишет «генеральный директор» с личного аккаунта и просит срочно перевести деньги. Что делать?"
+            RU: "В Telegram пишет «генеральный директор» с личного аккаунта и просит срочно перевести деньги. Что делать?",
+            KZ: "Telegram-да «бас директор» жеке аккаунтынан жазып, шұғыл ақша аударуды сұрайды. Не істеу керек?"
         },
         options: {
             EN: [
@@ -191,15 +252,21 @@ const QUESTIONS_POOL = [
                 { text: "Связаться с директором по официальному рабочему каналу для проверки.", correct: true },
                 { text: "Срочно отправить деньги, чтобы не злить руководство.", correct: false },
                 { text: "Попросить директора прислать фото паспорта в чат для подтверждения.", correct: false }
+            ],
+            KZ: [
+                { text: "Сұрауды тексеру үшін директормен ресми жұмыс арнасы арқылы байланысу.", correct: true },
+                { text: "Басшылықты ашуландырмау үшін ақшаны тез аудару.", correct: false },
+                { text: "Растау үшін директордан чатқа паспортының суретін жіберуді сұрау.", correct: false }
             ]
         }
     },
     {
         id: 8,
-        topic: { EN: "BROWSER WARNINGS", RU: "ПРЕДУПРЕЖДЕНИЯ БРАУЗЕРА" },
+        topic: { EN: "BROWSER WARNINGS", RU: "ПРЕДУПРЕЖДЕНИЯ БРАУЗЕРА", KZ: "БРАУЗЕР ЕСКЕРТУЛЕРІ" },
         text: {
             EN: "Your browser shows a warning: 'Your connection is not private, attackers might steal your info'. What to do?",
-            RU: "Браузер показывает предупреждение: «Подключение не защищено, злоумышленники могут похитить данные». Ваши действия?"
+            RU: "Браузер показывает предупреждение: «Подключение не защищено, злоумышленники могут похитить данные». Ваши действия?",
+            KZ: "Браузер ескерту көрсетеді: «Қосылым қорғалмаған, алаяқтар деректерді ұрлауы мүмкін». Әрекетіңіз?"
         },
         options: {
             EN: [
@@ -211,6 +278,11 @@ const QUESTIONS_POOL = [
                 { text: "Нажать «Дополнительно» -> «Перейти на сайт», предупреждения врут.", correct: false },
                 { text: "Немедленно закрыть вкладку и не вводить на этом сайте никаких данных.", correct: true },
                 { text: "Попробовать зайти через режим инкогнито, чтобы обойти блокировку.", correct: false }
+            ],
+            KZ: [
+                { text: "«Қосымша» -> «Сайтқа өту» түймесін басу, ескертулер жиі қателеседі.", correct: false },
+                { text: "Бетті бірден жауып, ол сайтқа ешқандай деректерді енгізбеу.", correct: true },
+                { text: "Бұғаттауды айналып өту үшін инкогнито режимі арқылы кіруге тырысу.", correct: false }
             ]
         }
     }
@@ -386,7 +458,6 @@ const SPRITE_PALETTE = {
     'r': '#ff1744',   // Red indicator
 };
 
-// Improved platform sprite (matches the floating metallic platform from screenshot)
 const PLATFORM_SPRITE = [
     "...........gggggggggggggggggggggggggggg...........",
     ".......ggggppppppppppppppppppppppppppppppgggg.......",
@@ -406,7 +477,6 @@ const PLATFORM_SPRITE = [
     ".....................gggdggg......................"
 ];
 
-// Enhanced Player sprite - armored cyber warrior
 const SPRITES = {
     player: {
         idle1: [
@@ -659,7 +729,7 @@ class GameEngine {
     constructor() {
         this.canvas = document.getElementById('gameCanvas');
         this.ctx = this.canvas.getContext('2d');
-        this.lang = 'RU';
+        this.lang = 'RU'; // Default set to RU to match the HTML layout default
         this.activeTheme = 'CITY';
 
         this.gameState = 'INTRO';
@@ -762,10 +832,13 @@ class GameEngine {
             sfx.playClick();
         });
 
+        // Language toggle cycling EN -> RU -> KZ -> EN...
         const langBtn = document.getElementById('langToggleBtn');
         langBtn.addEventListener('click', () => {
-            this.lang = this.lang === 'EN' ? 'RU' : 'EN';
-            langBtn.textContent = this.lang === 'EN' ? 'RU' : 'EN';
+            const langs = ['EN', 'RU', 'KZ'];
+            const nextIdx = (langs.indexOf(this.lang) + 1) % langs.length;
+            this.lang = langs[nextIdx];
+            langBtn.textContent = this.lang;
             sfx.playClick();
             this.applyLanguage();
         });
@@ -802,9 +875,9 @@ class GameEngine {
         document.getElementById('nextBtn').textContent = t.continueBtn;
 
         const themeNames = {
-            CITY: { EN: "NEON CITY", RU: "НЕОН-СИТИ" },
-            MATRIX: { EN: "MATRIX CODE", RU: "МАТРИЦА" },
-            SPACE: { EN: "SPACE DEEP", RU: "КОСМОС" }
+            CITY: { EN: "NEON CITY", RU: "НЕОН-СИТИ", KZ: "НЕОН ҚАЛАСЫ" },
+            MATRIX: { EN: "MATRIX CODE", RU: "МАТРИЦА", KZ: "МАТРИЦА" },
+            SPACE: { EN: "SPACE DEEP", RU: "КОСМОС", KZ: "ҒАРЫШ" }
         };
         document.getElementById('themeToggleBtn').textContent = themeNames[this.activeTheme][this.lang];
 
@@ -833,7 +906,7 @@ class GameEngine {
     }
 
     restoreCheckpoint() {
-        // Restore hearts but keep enemy HP — game NEVER ends by death, only by winning
+        // Restore hearts but keep enemy HP
         this.playerHp = 3;
         this.updateHearts();
         this.currentQuestionIdx++;
@@ -952,7 +1025,6 @@ class GameEngine {
     }
 
     proceedAfterFeedback() {
-        // *** KEY CHANGE: No game over. If HP = 0, show checkpoint to restore. ***
         if (this.playerHp <= 0) {
             this.gameState = 'CHECKPOINT';
             this.switchScreen('checkpointScreen');
@@ -1146,7 +1218,7 @@ class GameEngine {
         else if (this.activeTheme === 'MATRIX') this.renderMatrixBackground();
         else this.renderSpaceBackground();
 
-        // 2. Platforms (replacing old ground lines!)
+        // 2. Platforms
         drawPixelSprite(this.ctx, PLATFORM_SPRITE, 85, 255, 3);
         drawPixelSprite(this.ctx, PLATFORM_SPRITE, 530, 255, 3);
 
@@ -1208,7 +1280,6 @@ class GameEngine {
             this.ctx.shadowBlur = 14;
             this.ctx.shadowColor = proj.color;
             if (proj.type === 'player') {
-                // Cyber orb
                 const grad = this.ctx.createRadialGradient(proj.x, proj.y, 0, proj.x, proj.y, proj.radius);
                 grad.addColorStop(0, '#ffffff');
                 grad.addColorStop(0.4, proj.color);
@@ -1218,7 +1289,6 @@ class GameEngine {
                 this.ctx.arc(proj.x, proj.y, proj.radius + 4, 0, Math.PI * 2);
                 this.ctx.fill();
             } else {
-                // Virus square
                 const sz = proj.radius * 2;
                 this.ctx.fillStyle = '#1a0010';
                 this.ctx.strokeStyle = proj.color;
@@ -1241,7 +1311,6 @@ class GameEngine {
             this.ctx.shadowBlur = this.kamehameha.beamGlow;
             this.ctx.shadowColor = '#00e5ff';
 
-            // Outer glow
             const beamGrad = this.ctx.createLinearGradient(sx, 0, 820, 0);
             beamGrad.addColorStop(0, 'rgba(0,229,255,0.6)');
             beamGrad.addColorStop(0.5, 'rgba(0,229,255,0.3)');
@@ -1249,11 +1318,9 @@ class GameEngine {
             this.ctx.fillStyle = beamGrad;
             this.ctx.fillRect(sx, sy - w/2 - 14, 820 - sx, w + 28);
 
-            // Core beam
             this.ctx.fillStyle = '#00e5ff';
             this.ctx.fillRect(sx, sy - w/2, 820 - sx, w);
 
-            // White hot center
             this.ctx.fillStyle = 'rgba(255,255,255,0.85)';
             this.ctx.fillRect(sx, sy - w/4, 820 - sx, w/2);
 
@@ -1283,12 +1350,11 @@ class GameEngine {
         });
         this.ctx.restore();
 
-        this.ctx.restore(); // end shake
+        this.ctx.restore();
     }
 
     renderCityBackground() {
         const w = this.canvas.width, h = this.canvas.height;
-        // Sky gradient
         const sky = this.ctx.createLinearGradient(0, 0, 0, h);
         sky.addColorStop(0, '#040610');
         sky.addColorStop(0.55, '#0a0b1a');
@@ -1296,7 +1362,6 @@ class GameEngine {
         this.ctx.fillStyle = sky;
         this.ctx.fillRect(0, 0, w, h);
 
-        // Moon / glowing orb
         this.ctx.save();
         const moonGrad = this.ctx.createRadialGradient(680, 50, 2, 680, 50, 45);
         moonGrad.addColorStop(0, 'rgba(0,229,255,0.15)');
@@ -1313,7 +1378,6 @@ class GameEngine {
         this.ctx.stroke();
         this.ctx.restore();
 
-        // Buildings
         this.ctx.save();
         const buildings = [
             { x: 10, w: 55, h: 95, c: 'rgba(0,229,255,0.18)' },
@@ -1327,14 +1391,11 @@ class GameEngine {
         ];
         buildings.forEach(b => {
             const by = 160 - b.h;
-            // Building body
             this.ctx.fillStyle = 'rgba(6,7,16,0.95)';
             this.ctx.fillRect(b.x, by, b.w, b.h);
-            // Outline glow
             this.ctx.strokeStyle = b.c;
             this.ctx.lineWidth = 1;
             this.ctx.strokeRect(b.x, by, b.w, b.h);
-            // Windows
             this.ctx.fillStyle = b.c;
             for (let wy = by + 8; wy < 155; wy += 14) {
                 for (let wx = b.x + 6; wx < b.x + b.w - 6; wx += 12) {
@@ -1346,7 +1407,6 @@ class GameEngine {
         });
         this.ctx.restore();
 
-        // Perspective grid (floor)
         this.ctx.save();
         this.ctx.strokeStyle = 'rgba(0, 229, 255, 0.055)';
         this.ctx.lineWidth = 1;
@@ -1359,7 +1419,6 @@ class GameEngine {
         }
         this.ctx.restore();
 
-        // HUD labels
         this.ctx.save();
         this.ctx.font = '7px "Press Start 2P"';
         this.ctx.fillStyle = 'rgba(0, 229, 255, 0.18)';
@@ -1375,7 +1434,6 @@ class GameEngine {
         this.ctx.fillStyle = '#020603';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Grid
         this.ctx.save();
         this.ctx.strokeStyle = 'rgba(0, 255, 102, 0.06)';
         this.ctx.lineWidth = 1;
@@ -1388,7 +1446,6 @@ class GameEngine {
         }
         this.ctx.restore();
 
-        // Rain
         this.ctx.save();
         this.ctx.font = '9px "Share Tech Mono"';
         this.matrixStreams.forEach(s => {
@@ -1407,7 +1464,6 @@ class GameEngine {
         this.ctx.fillStyle = '#05030d';
         this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-        // Nebulas
         this.ctx.save();
         [
             { x: 240, y: 90, r: 180, c: 'rgba(188, 19, 254, 0.14)' },
@@ -1421,7 +1477,6 @@ class GameEngine {
         });
         this.ctx.restore();
 
-        // Stars (twinkling)
         this.ctx.save();
         this.stars.forEach(s => {
             const twinkleAlpha = 0.5 + Math.sin(s.twinkle) * 0.4;
@@ -1431,7 +1486,6 @@ class GameEngine {
         });
         this.ctx.restore();
 
-        // Grid
         this.ctx.save();
         this.ctx.strokeStyle = 'rgba(188, 19, 254, 0.055)';
         this.ctx.lineWidth = 1;
